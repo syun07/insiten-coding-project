@@ -1,10 +1,16 @@
 import React from 'react';
 import CompanyCard from './CompanyCard';
+import { Card } from 'semantic-ui-react';
 
 const CompanyContainer = (props) => {
-    // console.log(props.companies)
+    const mapCompanies = props.companies.map((company, index) =>
+        <CompanyCard key={index} company={company} />
+    )
     return(
-        <CompanyCard companies={props.companies}/>
+        <Card.Group
+            itemsPerRow={4}>
+            {mapCompanies}
+        </Card.Group>
     )
 }
 

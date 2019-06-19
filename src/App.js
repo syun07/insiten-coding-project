@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CompanyContainer from './components/CompanyContainer';
+import { Segment } from 'semantic-ui-react';
 
 class App extends Component {
   constructor() {
@@ -24,10 +25,10 @@ class App extends Component {
   render() {
     // console.log(this.state)
     return (
-      <div>
+      <Segment>
         <CompanyContainer 
           companies={this.state.renderedCompanies} />
-      </div>
+      </Segment>
     )
   }
 }
