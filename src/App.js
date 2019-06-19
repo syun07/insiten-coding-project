@@ -22,6 +22,12 @@ class App extends Component {
       })
   }
 
+  openCompanyInfo = (company) => {
+    this.setState({
+      selectedCompany: company
+    })
+  }
+
   render() {
     // console.log(this.state)
     return (

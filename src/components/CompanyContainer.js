@@ -4,7 +4,10 @@ import { Card } from 'semantic-ui-react';
 
 const CompanyContainer = (props) => {
     const mapCompanies = props.companies.map((company, index) =>
-        <CompanyCard key={index} company={company} />
+        <CompanyCard 
+            key={index} 
+            company={company} 
+            openCompanyInfo={props.openCompanyInfo} />
     )
     return(
         <Card.Group
