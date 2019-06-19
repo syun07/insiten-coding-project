@@ -1,8 +1,12 @@
 let faker = require('faker');
 
+
+
+
 let generateCompanies = () => {
     let companies = [];
     let images = []
+    let status = []
 
     for (let id = 0; id < 30; id++) {
         let name = faker.company.companyName();
@@ -10,20 +14,24 @@ let generateCompanies = () => {
         let industry = faker.name.jobArea();
         let catchPhrase = faker.company.catchPhrase();
         let bs = faker.company.bs();
-        let keyContact = faker.name.findName();
+        let keyContact1 = faker.name.findName();
+        let keyContact2 = faker.name.findName();
         let email = faker.internet.email();
-        let netWorth = faker.finance.amount();
+        status.push("researching", "pending approval", "approved", "declined")
+        let financialPerformance = Number(faker.finance.amount());
 
         companies.push({
             "id": id,
             "name": name,
-            "images": images[Math.floor(Math.random() * Math.floor(images.length))],
+            "image": images[Math.floor(Math.random() * Math.floor(images.length))],
             "industry": industry,
             "catchPhrase": catchPhrase,
             "bs": bs,
-            "keyContact": keyContact,
+            "keyContact1": keyContact1,
+            "keyContact2": keyContact2,
             "email": email,
-            "netWorth": netWorth,
+            "status": status[Math.floor(Math.random() * Math.floor(status.length))],
+            "financialPerformance": financialPerformance
         });
     }
 
