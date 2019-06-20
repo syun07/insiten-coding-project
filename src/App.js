@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CompanyContainer from './components/CompanyContainer';
+import NewCompany from './components/NewCompany'
 import { Segment } from 'semantic-ui-react';
 
 class App extends Component {
@@ -22,16 +23,20 @@ class App extends Component {
       })
   }
 
-  openCompanyInfo = (company) => {
+  saveNewCompany = (company) => {
     this.setState({
-      selectedCompany: company
+      renderedCompanies: [
+        ...this.state.renderedCompanies, company
+      ]
     })
   }
 
   render() {
-    // console.log(this.state)
+    console.log(this.state)
     return (
       <Segment>
+        <NewCompany 
+          saveNewCompany={this.saveNewCompany} />
         <CompanyContainer 
           companies={this.state.renderedCompanies} />
       </Segment>
