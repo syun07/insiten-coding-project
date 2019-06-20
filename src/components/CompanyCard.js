@@ -17,7 +17,7 @@ const CompanyCard = (props) => {
             <Card.Content extra>
                 Key Contacts: {props.company.keyContact1}, {props.company.keyContact2}
             </Card.Content>
-            <CompanyModal company={props.company} />
+            <CompanyModal company={props.company} deleteCompany={props.deleteCompany} />
             <EditCompany company={props.company} editCompany={props.editCompany} />
         </Card>
     )

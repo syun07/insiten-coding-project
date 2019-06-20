@@ -18,6 +18,7 @@ const CompanyModal = (props) => {
                         <li>{props.company.keyContact2}  |  {props.company.email2}</li>
                     </ul>
                 </Modal.Description>
+                <Button onClick={() => props.deleteCompany(props.company.id)}>Delete</Button>
             </Modal.Content>
         </Modal>
     )

@@ -8,7 +8,8 @@ const CompanyContainer = (props) => {
             key={index} 
             company={company} 
             openCompanyInfo={props.openCompanyInfo} 
-            editCompany={props.editCompany} />
+            editCompany={props.editCompany} 
+            deleteCompany={props.deleteCompany} />
     )
     return(
         <Card.Group

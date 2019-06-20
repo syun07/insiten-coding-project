@@ -35,6 +35,16 @@ class App extends Component {
   
   // }
 
+  deleteCompany = (id) => {
+    let companies = [...this.state.renderedCompanies]
+    let index = companies.findIndex(x => x.id === id)
+    companies.splice(index, 1)
+    this.setState({
+      renderedCompanies: companies
+    })
+
+  }
+
   render() {
     console.log(this.state)
     return (
@@ -43,7 +53,8 @@ class App extends Component {
           saveNewCompany={this.saveNewCompany} />
         <CompanyContainer 
           companies={this.state.renderedCompanies}
-          editCompany={this.editCompany} />
+          editCompany={this.editCompany} 
+          deleteCompany={this.deleteCompany} />
       </Segment>
     )
   }
