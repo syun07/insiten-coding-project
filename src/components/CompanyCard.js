@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import CompanyModal from './CompanyModal';
+import EditCompany from './EditCompany';
 
 const CompanyCard = (props) => {
     // console.log(props.company)
     return (
         <Card>
-            <Image src={props.company.image} />
             <Card.Content>
                 <Card.Header>{props.company.name}</Card.Header>
                 <Card.Meta><strong>Industry: </strong>{props.company.industry} | <strong>Net Worth: </strong>{props.company.financialPerformance}M</Card.Meta>
@@ -18,6 +18,7 @@ const CompanyCard = (props) => {
                 Key Contacts: {props.company.keyContact1}, {props.company.keyContact2}
             </Card.Content>
             <CompanyModal company={props.company} />
+            <EditCompany company={props.company} editCompany={props.editCompany} />
         </Card>
     )
 }

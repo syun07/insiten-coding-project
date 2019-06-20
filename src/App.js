@@ -31,6 +31,10 @@ class App extends Component {
     })
   }
 
+  // editCompany = (id, companyObj) => {
+  
+  // }
+
   render() {
     console.log(this.state)
     return (
@@ -38,7 +42,8 @@ class App extends Component {
         <NewCompany 
           saveNewCompany={this.saveNewCompany} />
         <CompanyContainer 
-          companies={this.state.renderedCompanies} />
+          companies={this.state.renderedCompanies}
+          editCompany={this.editCompany} />
       </Segment>
     )
   }
