@@ -2,7 +2,6 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
 import CompanyModal from './CompanyModal';
-import EditCompany from './EditCompany';
 
 const CompanyCard = (props) => {
     // console.log(props.company)
@@ -17,8 +16,10 @@ const CompanyCard = (props) => {
             <Card.Content extra>
                 Key Contacts: {props.company.keyContact1}, {props.company.keyContact2}
             </Card.Content>
-            <CompanyModal company={props.company} deleteCompany={props.deleteCompany} />
-            <EditCompany company={props.company} editCompany={props.editCompany} />
+            <CompanyModal 
+                company={props.company} 
+                deleteCompany={props.deleteCompany} 
+                editCompany={props.editCompany} />
         </Card>
     )
 }

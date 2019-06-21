@@ -44,15 +44,20 @@ class App extends Component {
   }
 
   editCompany = (company)=> {
-    // let companies = [...this.state.renderedCompanies]
-    // let index = companies.findIndex(x => x.id === company.id)
-    // companies.splice(index, 1, company)
-    // this.setState({
-    //   renderedCompanies: companies
-    // // })
-    // return fetch(`${API}/${company.id}`,{
-    //   method: 'PATCH'
-
+    return fetch(`${API}/${company.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(company)
+    }).then(res => res.json())
+    .then(data => {
+      this.setState({
+        renderedCompanies: [
+          ...this.state.renderedCompanies, data
+        ]
+      })
+    })
   }
 
   deleteCompany = (id) => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import EditCompany from './EditCompany';
 import { Modal, Button } from 'semantic-ui-react';
 
 const CompanyModal = (props) => {
@@ -19,6 +20,7 @@ const CompanyModal = (props) => {
                     </ul>
                 </Modal.Description>
                 <Button onClick={() => props.deleteCompany(props.company.id)}>Delete</Button>
+                <EditCompany company={props.company} editCompany={props.editCompany} />
             </Modal.Content>
         </Modal>
     )
