@@ -1,0 +1,16 @@
+.comp-container {
+    padding: 2em; 
+ }
+.modal-header {
+    text-align: center;
+}
+.modal-description {
+    text-align: center;
+    padding: 1em 12em;
+ }
+.modal-buttons {
+    margin: 0 auto;
+}
+.ui.form .field .ui.input input {
+    text-align: center;
+}

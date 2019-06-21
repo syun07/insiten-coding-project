@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CompanyContainer from './components/CompanyContainer';
 import NewCompany from './components/NewCompany'
-import { Segment } from 'semantic-ui-react';
+import { Segment, Input, Grid, Dropdown } from 'semantic-ui-react';
 
 
 const API = 'http://localhost:3000/companies'
@@ -72,9 +72,26 @@ class App extends Component {
 
   render() {
     return (
-      <Segment>
-        <NewCompany 
-          saveNewCompany={this.saveNewCompany} />
+      <Segment className='body' basic textAlign='center'>
+        <Grid columns='four' divided>
+          <Grid.Row>
+            <Grid.Column>
+              <Input placeholder='Search...' />
+            </Grid.Column>
+            <Grid.Column>
+              <Dropdown 
+                placeholder='Filter by Status' />
+            </Grid.Column>
+            <Grid.Column>
+              <Dropdown 
+                placeholder='Filter by Industry' />
+            </Grid.Column>
+            <Grid.Column>
+              <NewCompany 
+                saveNewCompany={this.saveNewCompany} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
         <CompanyContainer 
           companies={this.state.renderedCompanies}
           editCompany={this.editCompany} 

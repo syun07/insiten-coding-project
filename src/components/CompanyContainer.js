@@ -13,6 +13,7 @@ const CompanyContainer = (props) => {
     )
     return(
         <Card.Group
+            className='comp-container'
             itemsPerRow={4}>
             {mapCompanies}
         </Card.Group>
