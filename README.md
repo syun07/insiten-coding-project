@@ -1,9 +1,5 @@
 Insiten Coding Project
 
-*********************************************
-run json-server api/companies.js & npm start
-*********************************************
-
 App
 |__Header
     |__NewCompany

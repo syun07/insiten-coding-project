@@ -32,7 +32,7 @@ class NewCompany extends Component {
         ]
         
         return(
-            <Modal trigger= { <Button color='blue' onClick={this.handleOpen}><Icon name='add'/>Add New Company</Button> }
+            <Modal trigger= { <Button inverted color='blue' onClick={this.handleOpen}><Icon name='add'/>Add New Company</Button> }
                 open={this.state.modalOpen}
                 onClose={this.handleClose}
             >
