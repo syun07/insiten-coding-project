@@ -57,7 +57,9 @@ class App extends Component {
           ...this.state.renderedCompanies, data
         ]
       })
-    })
+    }).then(window.location.reload())
+    // not the best way to do this but it fixes bug
+    // rendered information wouldn't update after state change
   }
 
   deleteCompany = (id) => {
@@ -65,7 +67,7 @@ class App extends Component {
       method: 'DELETE',
     }).then(this.setState({
       renderedCompanies: this.state.renderedCompanies.filter(company => company.id !== id)
-    }))
+    })).then(window.location.reload())
   }
 
   render() {
