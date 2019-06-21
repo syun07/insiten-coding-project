@@ -4,18 +4,21 @@ import { Card } from 'semantic-ui-react';
 import CompanyModal from './CompanyModal';
 
 const CompanyCard = (props) => {
-    // console.log(props.company)
+
+    const { name, industry, financialPerformance, catchPhrase, bs, status, keyContact1, keyContact2 } = props.company
+
     return (
         <Card>
             <Card.Content>
-                <Card.Header>{props.company.name}</Card.Header>
-                <Card.Meta><strong>Industry: </strong>{props.company.industry} | <strong>Net Worth: </strong>{props.company.financialPerformance}M</Card.Meta>
-                <Card.Description>{props.company.catchPhrase}, {props.company.bs}</Card.Description>
-                <Card.Description>{props.company.status}</Card.Description>
+                <Card.Header>{name}</Card.Header>
+                <Card.Meta><strong>Industry: </strong>{industry} | <strong>Net Worth: </strong>{financialPerformance}M</Card.Meta>
+                <Card.Description>{catchPhrase}, {bs}</Card.Description>
+                <Card.Description>{status}</Card.Description>
             </Card.Content>
             <Card.Content extra>
-                Key Contacts: {props.company.keyContact1}, {props.company.keyContact2}
+                Key Contacts: {keyContact1}, {keyContact2}
             </Card.Content>
+            
             <CompanyModal 
                 company={props.company} 
                 deleteCompany={props.deleteCompany} 

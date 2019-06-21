@@ -5,23 +5,12 @@ class NewCompany extends Component {
     constructor() {
         super();
         this.state = {
-            newCompany: {
-                name: '',
-                address: '',
-                industry: '',
-                catchPhrase: '',
-                bs: '',
-                keyContact1: '',
-                email1: '',
-                keyContact2: '',
-                email2: '',
-                status: '',
-                financialPerformance: ''
-            }
+            newCompany: {}
         }
     }  
 
     handleChange = input => event => {
+        event.preventDefault()
         this.setState({
             newCompany: {
                 ...this.state.newCompany, [input]: event.target.value
@@ -30,7 +19,6 @@ class NewCompany extends Component {
     }
 
     render() {
-        // console.table(this.state)
         return(
             <Modal trigger={<Button>Add New Company</Button>}>
                 <Modal.Header>

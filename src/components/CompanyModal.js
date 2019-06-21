@@ -3,24 +3,29 @@ import EditCompany from './EditCompany';
 import { Modal, Button } from 'semantic-ui-react';
 
 const CompanyModal = (props) => {
+
+    const { name, address, industry, catchPhrase, bs, status, keyContact1, email1, keyContact2, email2 } = props.company
+    
     return(
         <Modal trigger={<Button>More Information</Button>}>
-            <Modal.Header>{props.company.name}</Modal.Header>
+            <Modal.Header>{name}</Modal.Header>
             <Modal.Content>
                 <Modal.Description>
-                    <p><strong>Address: </strong>{props.company.address}</p>
-                    <p><strong>Industry: </strong>{props.company.industry}</p>
-                    <p><strong>Description: </strong>{props.company.catchPhrase}</p>
-                    <p><strong>Additional Info: </strong>{props.company.bs}</p>
-                    <p><strong>Status: </strong>{props.company.status}</p>
+                    <p><strong>Address: </strong>{address}</p>
+                    <p><strong>Industry: </strong>{industry}</p>
+                    <p><strong>Description: </strong>{catchPhrase}</p>
+                    <p><strong>Additional Info: </strong>{bs}</p>
+                    <p><strong>Status: </strong>{status}</p>
                     <p><strong>Key Contacts: </strong></p>
                     <ul>
-                        <li>{props.company.keyContact1}  |  {props.company.email1}</li>
-                        <li>{props.company.keyContact2}  |  {props.company.email2}</li>
+                        <li>{keyContact1}  |  {email1}</li>
+                        <li>{keyContact2}  |  {email2}</li>
                     </ul>
                 </Modal.Description>
                 <Button onClick={() => props.deleteCompany(props.company.id)}>Delete</Button>
-                <EditCompany company={props.company} editCompany={props.editCompany} />
+                <EditCompany 
+                    company={props.company} 
+                    editCompany={props.editCompany} />
             </Modal.Content>
         </Modal>
     )

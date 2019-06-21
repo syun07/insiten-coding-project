@@ -40,7 +40,7 @@ class App extends Component {
           ...this.state.renderedCompanies, data
         ]
       })
-    })
+    }).then(window.location.reload())
   }
 
   editCompany = (company)=> {
@@ -71,7 +71,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <Segment>
         <NewCompany 

@@ -18,12 +18,15 @@ class EditCompany extends Component {
     }
 
     render() {
+        
+        const { name, address, industry, catchPhrase, bs, keyContact1, email1, keyContact2, email2, status, financialPerformance} = this.state.company
+
         return(
             <Modal trigger={<Button>Edit This Company</Button>}>
                 <Modal.Header>
                     <Form.Input 
                         label='Company Name: '
-                        value={this.state.company.name} 
+                        value={name} 
                         onChange={this.handleChange('name')} />
                 </Modal.Header>
     
@@ -31,43 +34,43 @@ class EditCompany extends Component {
                     <Modal.Description>
                         <Form.Input
                             label='Company Address: '
-                            value={this.state.company.address}
+                            value={address}
                             onChange={this.handleChange('address')} />
                         <Form.Input
                             label='Industry: '
-                            value={this.state.company.industry}
+                            value={industry}
                             onChange={this.handleChange('industry')} />
                         <Form.Input
                             label='Description: '
-                            value={this.state.company.catchPhrase}
+                            value={catchPhrase}
                             onChange={this.handleChange('catchPhrase')} />
                         <Form.Input
                             label='Additional Information: '
-                            value={this.state.company.bs}
+                            value={bs}
                             onChange={this.handleChange('bs')} />
                         <Form.Input
                             label='Key Contact 1 Name: '
-                            value={this.state.company.keyContact1}
+                            value={keyContact1}
                             onChange={this.handleChange('keyContact1')} />
                         <Form.Input
                             label='Key Contact 1 Email: '
-                            value={this.state.company.email1}
+                            value={email1}
                             onChange={this.handleChange('email1')} />
                         <Form.Input
                             label='Key Contact 2 Name: '
-                            value={this.state.company.keyContact2}
+                            value={keyContact2}
                             onChange={this.handleChange('keyContact2')} />
                         <Form.Input
                             label='Key Contact 2 Email: '
-                            value={this.state.company.email2}
+                            value={email2}
                             onChange={this.handleChange('email2')} />
                         <Form.Input
                             label='Status: '
-                            value={this.state.company.status}
+                            value={status}
                             onChange={this.handleChange('status')} />
                         <Form.Input
                             label='Net Worth '
-                            value={this.state.company.financialPerformance}
+                            value={financialPerformance}
                             onChange={this.handleChange('financialPerformance')} />
                     </Modal.Description>
                 <Button onClick={() => this.props.editCompany(this.state.company)}>Save</Button>
