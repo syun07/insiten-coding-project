@@ -11,7 +11,7 @@ class CompanyModal extends Component {
 
     render() {
 
-        const { id, name, address, industry, catchPhrase, bs, status, keyContact1, email1, keyContact2, email2 } = this.props.company
+        const { id, name, address, industry, financialPerformance, catchPhrase, bs, status, keyContact1, email1, keyContact2, email2 } = this.props.company
         
             return(
 
@@ -24,6 +24,7 @@ class CompanyModal extends Component {
                         <Modal.Description className='modal-description'>
                             <p><strong>Address</strong><br/>{address}</p>
                             <p><strong>Industry</strong><br/>{industry}</p>
+                            <p><strong>Net Worth</strong><br/>{financialPerformance}M</p>
                             <p><strong>Description</strong><br/>{catchPhrase}</p>
                             <p><strong>Additional Info</strong><br/>{bs}</p>
                             <p><strong>Status</strong><br/>{status}</p>

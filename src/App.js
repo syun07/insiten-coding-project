@@ -4,7 +4,7 @@ import CompanyContainer from './components/CompanyContainer';
 import NewCompany from './components/NewCompany';
 import SearchBar from './components/SearchBar';
 import StatusFilter from './components/StatusFilter';
-import { Segment, Grid, Dropdown } from 'semantic-ui-react';
+import { Segment, Grid } from 'semantic-ui-react';
 
 
 const API = 'http://localhost:3000/companies'
@@ -100,7 +100,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <Segment className='body' basic textAlign='center'>
         <Grid columns='three' divided>

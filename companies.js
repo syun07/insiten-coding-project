@@ -13,7 +13,7 @@ let generateCompanies = () => {
         let email1 = faker.internet.email();
         let keyContact2 = faker.name.findName();
         let email2 = faker.internet.email();
-        status.push("researching", "pending approval", "approved", "declined")
+        status.push("Researching", "Pending approval", "Approved", "Declined")
         let financialPerformance = Number(faker.finance.amount());
         let address = faker.address.streetAddress() + ' ' + faker.address.city() + ', ' + faker.address.stateAbbr() + ' ' + faker.address.zipCode();
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Form, Button } from 'semantic-ui-react';
+import { Modal, Form, Button, Dropdown } from 'semantic-ui-react';
 
 class EditCompany extends Component {
     constructor(props) {
@@ -10,14 +10,22 @@ class EditCompany extends Component {
     }
 
     handleChange = input => event => {
-        this.setState({
-            company: {
-                ...this.state.company, [input]: event.target.value
-            }
-        })
+        this.setState({ company: {...this.state.company, [input]: event.target.value} })
     }
 
+    handleDropdown = (event, {value}) => {
+        this.setState({ company: {...this.state.company, 'status': value} })
+    }
+
+    
     render() {
+        let options = [
+            {key: 'all', text: 'All', value: 'all'},
+            {key: 'approved', text: 'Approved', value: 'Approved'},
+            {key: 'declined', text: 'Declined', value: 'Declined'},
+            {key: 'pending approval', text: 'Pending approval', value: 'Pending approval'},
+            {key: 'researching', text: 'Researching', value: 'Researching'}
+        ]
         
         const { name, address, industry, catchPhrase, bs, keyContact1, email1, keyContact2, email2, status, financialPerformance} = this.state.company
 
@@ -47,6 +55,12 @@ class EditCompany extends Component {
                                 label='Additional Information'
                                 value={bs}
                                 onChange={this.handleChange('bs')} />
+                            <Dropdown
+                                placeholder={status}
+                                selection
+                                options={options}
+                                onChange={(event, {value}) => this.handleDropdown(event, {value})} />
+                                <br/><br/>
                             <Form.Group widths='equal'>
                                 <Form.Input
                                     label='Key Contact 1 Name'
@@ -67,10 +81,6 @@ class EditCompany extends Component {
                                     value={email2}
                                     onChange={this.handleChange('email2')} />
                             </Form.Group>
-                            <Form.Input
-                                label='Status'
-                                value={status}
-                                onChange={this.handleChange('status')} />
                             <Form.Input
                                 label='Net Worth'
                                 value={financialPerformance}

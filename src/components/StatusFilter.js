@@ -3,10 +3,10 @@ import { Dropdown } from 'semantic-ui-react'
 
 let options = [
     {key: 'all', text: 'All', value: 'all'},
-    {key: 'approved', text: 'Approved', value: 'approved'},
-    {key: 'declined', text: 'Declined', value: 'declined'},
-    {key: 'pending approval', text: 'Pending approval', value: 'pending approval'},
-    {key: 'researching', text: 'Researching', value: 'researching'}
+    {key: 'approved', text: 'Approved', value: 'Approved'},
+    {key: 'declined', text: 'Declined', value: 'Declined'},
+    {key: 'pending approval', text: 'Pending approval', value: 'Pending approval'},
+    {key: 'researching', text: 'Researching', value: 'Researching'}
 ]
 
 const StatusFilter = (props) => {
