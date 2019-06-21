@@ -4,6 +4,9 @@ import CompanyContainer from './components/CompanyContainer';
 import NewCompany from './components/NewCompany'
 import { Segment } from 'semantic-ui-react';
 
+
+const API = 'http://localhost:3000/companies'
+
 class App extends Component {
   constructor() {
     super() 
@@ -14,7 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/companies')
+    fetch(`${API}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -24,29 +27,40 @@ class App extends Component {
   }
 
   saveNewCompany = (company) => {
-    this.setState({
-      renderedCompanies: [
-        ...this.state.renderedCompanies, company
-      ]
+    return fetch(`${API}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(company)
+    }).then(res => res.json())
+    .then(data => {
+      this.setState({
+        renderedCompanies: [
+          ...this.state.renderedCompanies, data
+        ]
+      })
     })
   }
 
   editCompany = (company)=> {
-    let companies = [...this.state.renderedCompanies]
-    let index = companies.findIndex(x => x.id === company.id)
-    companies.splice(index, 1, company)
-    this.setState({
-      renderedCompanies: companies
-    })
+    // let companies = [...this.state.renderedCompanies]
+    // let index = companies.findIndex(x => x.id === company.id)
+    // companies.splice(index, 1, company)
+    // this.setState({
+    //   renderedCompanies: companies
+    // // })
+    // return fetch(`${API}/${company.id}`,{
+    //   method: 'PATCH'
+
   }
 
   deleteCompany = (id) => {
-    let companies = [...this.state.renderedCompanies]
-    let index = companies.findIndex(x => x.id === id)
-    companies.splice(index, 1)
-    this.setState({
-      renderedCompanies: companies
-    })
+    return fetch(`${API}/${id}`,{
+      method: 'DELETE',
+    }).then(this.setState({
+      renderedCompanies: this.state.renderedCompanies.filter(company => company.id !== id)
+    }))
   }
 
   render() {
