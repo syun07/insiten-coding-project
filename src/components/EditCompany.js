@@ -70,7 +70,7 @@ class EditCompany extends Component {
                             value={this.state.company.financialPerformance}
                             onChange={this.handleChange('financialPerformance')} />
                     </Modal.Description>
-                <Button onClick={() => this.props.editCompany(this.state.company.id, this.state.company)}>Save</Button>
+                <Button onClick={() => this.props.editCompany(this.state.company)}>Save</Button>
             </Modal.Content>
         </Modal>
         )

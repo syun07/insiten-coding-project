@@ -31,9 +31,14 @@ class App extends Component {
     })
   }
 
-  // editCompany = (id, companyObj) => {
-  
-  // }
+  editCompany = (company)=> {
+    let companies = [...this.state.renderedCompanies]
+    let index = companies.findIndex(x => x.id === company.id)
+    companies.splice(index, 1, company)
+    this.setState({
+      renderedCompanies: companies
+    })
+  }
 
   deleteCompany = (id) => {
     let companies = [...this.state.renderedCompanies]
@@ -42,7 +47,6 @@ class App extends Component {
     this.setState({
       renderedCompanies: companies
     })
-
   }
 
   render() {
