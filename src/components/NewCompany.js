@@ -5,7 +5,8 @@ class NewCompany extends Component {
     constructor() {
         super();
         this.state = {
-            newCompany: {}
+            newCompany: {},
+            modalOpen: false
         }
     }  
 
@@ -18,9 +19,15 @@ class NewCompany extends Component {
         })
     }
 
+    handleOpen = () => this.setState({ modalOpen: true })
+    handleClose = () => this.setState({ modalOpen: false })
+
     render() {
         return(
-            <Modal trigger= { <Button color='blue' className='add-button'><Icon name='add'/>Add New Company</Button> }>
+            <Modal trigger= { <Button color='blue' onClick={this.handleOpen}><Icon name='add'/>Add New Company</Button> }
+                open={this.state.modalOpen}
+                onClose={this.handleClose}
+            >
                 <Form>
                     <Modal.Content>   
                         <Modal.Description className='modal-description'>
@@ -72,7 +79,7 @@ class NewCompany extends Component {
                                 label='Net Worth'
                                 placeholder='Net Worth'
                                 onChange={this.handleChange('financialPerformance')} />
-                            <Button color='olive' onClick={() => this.props.saveNewCompany(this.state.newCompany)}>Save</Button>
+                            <Button color='olive' onClick={() => this.props.saveNewCompany(this.state.newCompany).then(this.handleClose)}>Save</Button>
                         </Modal.Description>
                     </Modal.Content>    
                 </Form>

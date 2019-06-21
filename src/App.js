@@ -46,7 +46,7 @@ class App extends Component {
           ...this.state.allCompanies, data
         ]
       })
-    }).then(window.location.reload())
+    })
   }
 
   editCompany = (company)=> {
@@ -67,8 +67,6 @@ class App extends Component {
         ]
       })
     }).then(window.location.reload())
-    // not the best way to do this but it fixes bug
-    // rendered information wouldn't update after state change
   }
 
   deleteCompany = (id) => {
@@ -77,7 +75,7 @@ class App extends Component {
     }).then(this.setState({
       allCompanies: this.state.allCompanies.filter(company => company.id !== id),
       renderedCompanies: this.state.allCompanies.filter(company => company.id !== id)
-    })).then(window.location.reload())
+    }))
   }
 
   handleSearch = (event) => {
