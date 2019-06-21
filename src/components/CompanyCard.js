@@ -1,4 +1,3 @@
-
 import React from 'react';
 import CompanyModal from './CompanyModal';
 import { Card, Label } from 'semantic-ui-react';
@@ -7,6 +6,7 @@ const CompanyCard = (props) => {
 
     const { name, industry, financialPerformance, catchPhrase, bs, status, keyContact1, keyContact2 } = props.company
     
+    // determine label color based on status
     let color;
     switch (props.company.status) {
         case 'Approved':
@@ -30,9 +30,10 @@ const CompanyCard = (props) => {
             <Card.Content>
                 <Card.Header>{name}</Card.Header>
                 <Card.Meta><strong>Industry: </strong>{industry} | <strong>Net Worth: </strong>{financialPerformance}M</Card.Meta>
-                <Card.Description>{catchPhrase}, {bs}</Card.Description>
+                <Card.Description>{catchPhrase}, {bs}</Card.Description><br/>
                 <Card.Description><Label color={color}>{status}</Label></Card.Description>
             </Card.Content>
+
             <Card.Content extra>
                 Key Contacts: {keyContact1}, {keyContact2}
             </Card.Content>

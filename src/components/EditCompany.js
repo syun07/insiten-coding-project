@@ -17,7 +17,6 @@ class EditCompany extends Component {
         this.setState({ company: {...this.state.company, 'status': value} })
     }
 
-    
     render() {
         let options = [
             {key: 'all', text: 'All', value: 'all'},

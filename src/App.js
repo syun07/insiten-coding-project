@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import CompanyContainer from './components/CompanyContainer';
-import NewCompany from './components/NewCompany';
-import SearchBar from './components/SearchBar';
-import StatusFilter from './components/StatusFilter';
-import { Segment, Grid } from 'semantic-ui-react';
-
+import Header from './components/Header';
+import { Segment } from 'semantic-ui-react';
 
 const API = 'http://localhost:3000/companies'
 
@@ -15,6 +12,7 @@ class App extends Component {
     this.state = {
       allCompanies: [],
       renderedCompanies: []
+      // for filter & search functionality
     }
   }
 
@@ -88,37 +86,18 @@ class App extends Component {
 
   handleChange = (event, {value}) => {
     let match = this.state.allCompanies.filter(company => company.status === value)
-    if (value !== 'all') {
-      this.setState({
-        renderedCompanies: match
-      })
-    } else {
-      this.setState({
-        renderedCompanies: this.state.allCompanies
-      })
-    }
+    value === 'all' ? this.setState({ renderedCompanies: this.state.allCompanies }) : this.setState({ renderedCompanies: match })
+    // if filter is on 'all', render all companies, else render matches
   }
 
   render() {
     return (
       <Segment className='body' basic textAlign='center'>
-        <Grid columns='three' divided>
-          <Grid.Row>
-            <Grid.Column>
-              <SearchBar 
-                handleSearch={this.handleSearch} />
-            </Grid.Column>
-            <Grid.Column>
-              <StatusFilter 
-                companies={this.state.allCompanies}
-                handleChange={this.handleChange} />
-            </Grid.Column>
-            <Grid.Column>
-              <NewCompany 
-                saveNewCompany={this.saveNewCompany} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <Header 
+          handleSearch={this.handleSearch}
+          companies={this.state.allCompanies} 
+          handleChange={this.handleChange}
+          saveNewCompany={this.saveNewCompany} />
         <CompanyContainer 
           companies={this.state.renderedCompanies}
           editCompany={this.editCompany} 
