@@ -19,7 +19,6 @@ class EditCompany extends Component {
 
     render() {
         let options = [
-            {key: 'all', text: 'All', value: 'all'},
             {key: 'approved', text: 'Approved', value: 'Approved'},
             {key: 'declined', text: 'Declined', value: 'Declined'},
             {key: 'pending approval', text: 'Pending approval', value: 'Pending approval'},

@@ -14,3 +14,7 @@
 .ui.form .field .ui.input input {
     text-align: center;
 }
+
+.ui.grid>.row {
+    align-items: center;
+}

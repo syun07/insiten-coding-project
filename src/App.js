@@ -28,23 +28,28 @@ class App extends Component {
   }
 
   saveNewCompany = (company) => {
-    return fetch(`${API}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(company)
-    }).then(res => res.json())
-    .then(data => {
-      this.setState({
-        allCompanies: [
-          ...this.state.allCompanies, data
-        ],
-        renderedCompanies: [
-          ...this.state.allCompanies, data
-        ]
-      })
-    })
+    if (this.state.allCompanies.filter(comp => comp.name === company.name).length === 0) {
+      return fetch(`${API}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(company)
+      }).then(res => res.json())
+      .then(data => {
+        this.setState({
+          allCompanies: [
+            ...this.state.allCompanies, data
+          ],
+          renderedCompanies: [
+            ...this.state.allCompanies, data
+          ]
+        })
+      }) 
+    } else {
+      alert('This company already exists')
+      return new Promise((accept) => accept ())
+    }
   }
 
   editCompany = (company)=> {
@@ -93,7 +98,7 @@ class App extends Component {
   render() {
     return (
       <Segment className='body' basic textAlign='center'>
-        <Header 
+        <Header
           handleSearch={this.handleSearch}
           companies={this.state.allCompanies} 
           handleChange={this.handleChange}
